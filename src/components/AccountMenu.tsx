@@ -152,7 +152,7 @@ export function AccountMenu({
           }}
         >
           <Icon id="i-crown" />
-          Millida Plus
+          Plus
         </button>
         <button
           id="accAddBtn"

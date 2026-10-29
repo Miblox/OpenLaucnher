@@ -36,10 +36,10 @@ function image(descriptors) {
 // куда указывает ссылка на фон внутри .DS_Store, и окно теряет оформление.
 describe('assertVolumeName', () => {
   test('имя во всех дескрипторах совпадает — пропускает', () => {
-    const { path, dir } = image([descriptor(1, 'Millida Launcher 1.0.97 ARM')])
+    const { path, dir } = image([descriptor(1, 'OpenLauncher 1.0.97 ARM')])
     try {
-      expect(readVolumeIds(path)).toEqual([{ descriptor: 'ISO9660', id: 'Millida Launcher 1.0.97 ARM' }])
-      expect(() => assertVolumeName(path, 'Millida Launcher 1.0.97 ARM')).not.toThrow()
+      expect(readVolumeIds(path)).toEqual([{ descriptor: 'ISO9660', id: 'OpenLauncher 1.0.97 ARM' }])
+      expect(() => assertVolumeName(path, 'OpenLauncher 1.0.97 ARM')).not.toThrow()
     } finally {
       rmSync(dir, { recursive: true, force: true })
     }
@@ -47,11 +47,11 @@ describe('assertVolumeName', () => {
 
   test('Joliet обрезал имя до 16 символов — валит сборку', () => {
     const { path, dir } = image([
-      descriptor(1, 'Millida Launcher 1.0.97 ARM'),
-      descriptor(2, 'Millida Launcher'),
+      descriptor(1, 'OpenLauncher 1.0.97 ARM'),
+      descriptor(2, 'OpenLauncher'),
     ])
     try {
-      expect(() => assertVolumeName(path, 'Millida Launcher 1.0.97 ARM')).toThrow(/Joliet «Millida Launcher»/)
+      expect(() => assertVolumeName(path, 'OpenLauncher 1.0.97 ARM')).toThrow(/Joliet «OpenLauncher
     } finally {
       rmSync(dir, { recursive: true, force: true })
     }

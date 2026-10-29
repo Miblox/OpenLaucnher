@@ -3,7 +3,7 @@
 use crate::engine::*;
 use serde_json::Value;
 
-pub const MILLIDA_API: &str = "https://api.millida.net/v2";
+pub const MILLIDA_API: &str = "";
 
 /// The API `message` field is either a string or a list of validator messages.
 pub fn api_error_message(text: &str) -> Option<String> {

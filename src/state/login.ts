@@ -41,12 +41,12 @@ interface LoginState {
   set: (patch: Partial<LoginState>) => void
 }
 
-const idleLabel = (): string => t('Войти через аккаунт Millida')
+const idleLabel = (): string => t('Войти через аккаунт')
 
 // The browser does not always come up (no default browser, a portable build, a
 // second machine). Saying where the code goes turns a dead end into a two-step
 // login: millida.net/auth/launcher has a field for exactly this code.
-const manualHint = (): string => t('Подтверди код на странице Millida. Не открылась — зайди на millida.net/auth/launcher и введи код там.')
+const manualHint = (): string => t('Подтверди код на странице . Не открылась — зайди на example.com/auth/launcher и введи код там.')
 
 export const useLogin = create<LoginState>((set) => ({
   webLabel: idleLabel(),
@@ -158,7 +158,7 @@ export async function startWebLogin(reopen = false) {
     return
   }
   if (!hasTauri()) {
-    showToast(t('Вход через аккаунт Millida доступен только в приложении лаунчера'), 'error')
+    showToast(t('Вход через аккаунт доступен только в приложении лаунчера'), 'error')
     return
   }
   s.set({ webBusy: true, webLabel: t('Ждём подтверждения…') })
@@ -170,7 +170,7 @@ export async function startWebLogin(reopen = false) {
     try {
       init = await api<LauncherInit>('/auth/launcher/init', {
         method: 'POST',
-        body: JSON.stringify({ clientName: 'Millida Launcher' }),
+        body: JSON.stringify({ clientName: 'OpenLauncher' }),
       })
     } catch (e) {
       resetLogin()
@@ -279,7 +279,7 @@ export function quickStart() {
   // Guest mode is a shortcut for a returning user, not a way around the account:
   // friends, skins, hosting and the game profile all need a Millida login.
   if (!millidaEver()) {
-    showToast(t('Сначала войди в аккаунт Millida — это нужно один раз'), 'error')
+    showToast(t('Сначала войди в аккаунт — это нужно один раз'), 'error')
     return
   }
   const nick = 'Player' + Math.floor(1000 + Math.random() * 8999)

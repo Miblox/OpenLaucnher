@@ -1481,7 +1481,7 @@ mod tests {
         let name = exe.file_name().unwrap().to_string_lossy().to_ascii_lowercase();
         assert!(
             !name.starts_with("java"),
-            "the game started as {name:?}: Discord matches process names and would show Minecraft              instead of Millida Launcher",
+            "the game started as {name:?}: Discord matches process names and would show Minecraft              instead of OpenLauncher",
         );
         assert_eq!(
             exe.parent(),
@@ -1516,7 +1516,7 @@ mod tests {
             ("MillidaMinecraft", true, "the current copy on macOS"),
             ("MillidaMinecraf", true, "Linux cuts process names to 15 bytes"),
             ("MillidaLauncher.exe", true, "a game started by the previous version is still running after the update"),
-            ("Millida Launcher.exe", false, "the launcher itself is not a game"),
+            ("OpenLauncher.exe", false, "the launcher itself is not a game"),
             ("chrome.exe", false, "unrelated processes"),
         ];
         for (name, want, why) in cases {

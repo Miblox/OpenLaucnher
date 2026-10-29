@@ -61,8 +61,8 @@ describe('redactSecrets', () => {
     ],
     [
       'macOS: в журнале уже лежат пути с именами игроков из апдейтера',
-      'старую копию не сдвинуть (/Users/olgakansina/Desktop/Millida Launcher.app): Operation not permitted (os error 1)',
-      'старую копию не сдвинуть (~/Desktop/Millida Launcher.app): Operation not permitted (os error 1)',
+      'старую копию не сдвинуть (/Users/olgakansina/Desktop/OpenLauncher.app): Operation not permitted (os error 1)',
+      'старую копию не сдвинуть (~/Desktop/OpenLauncher.app): Operation not permitted (os error 1)',
     ],
     ['Linux', 'java: /home/vasya/.local/share/millida/java/17/bin/java', 'java: ~/.local/share/millida/java/17/bin/java'],
     [

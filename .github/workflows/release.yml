@@ -481,7 +481,7 @@ jobs:
             gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --notes-file notes.md $flags
           else
             gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --verify-tag $flags \
-              --title "Millida Launcher ${TAG#v}" --notes-file notes.md
+              --title "OpenLauncher ${TAG#v}" --notes-file notes.md
           fi
           find assets -type f ! -name bundles.json -print0 | xargs -0 gh release upload "$TAG" --repo "$GITHUB_REPOSITORY" --clobber provenance.sigstore.json
           gh release upload "$TAG" --repo "$GITHUB_REPOSITORY" --clobber assets/bundles.json

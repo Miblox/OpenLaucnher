@@ -26,11 +26,11 @@ use std::sync::Mutex;
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 
 // Public application id from the Discord Developer Portal. Discord needs it to show the name and pictures. It is not a secret.
-const DEFAULT_APP_ID: &str = "1530764069965922354";
+const DEFAULT_APP_ID: &str = "";
 const RETRY_AFTER: Duration = Duration::from_secs(30);
-const SITE_URL: &str = "https://millida.net/launcher";
-const DISCORD_URL: &str = "https://discord.gg/mcru";
-const PROFILE_BASE: &str = "https://millida.net/u/";
+const SITE_URL: &str = "";
+const DISCORD_URL: &str = "";
+const PROFILE_BASE: &str = "";
 
 /// Longest a caller waits for the socket before it is told what is known so
 /// far. The frontend gives presence two seconds before it beats without the
@@ -239,7 +239,7 @@ fn worker(generation: u64, rx: Receiver<Job>) {
                 let slug = lock(&LAST_SLUG).clone();
                 let presence = Presence {
                     details: "In launcher".into(),
-                    state: "Millida Launcher".into(),
+                    state: "OpenLauncher".into(),
                     profile_slug: slug,
                     ..Presence::default()
                 };
@@ -352,7 +352,7 @@ fn apply(client: &mut Option<DiscordIpcClient>, since: &mut Option<i64>, p: &Pre
     }
 
     let big = if p.large_image.starts_with("https://") { p.large_image.as_str() } else { "logo" };
-    let big_text = if p.large_text.is_empty() { "Millida Launcher" } else { p.large_text.as_str() };
+    let big_text = if p.large_text.is_empty() { "OpenLauncher" } else { p.large_text.as_str() };
     let join_ok = p.playing && p.join_url.starts_with(JOIN_PREFIX) && p.join_url.len() <= 512;
     let profile = profile_url(&p.profile_slug);
     // Presence is read by people of every language, so it stays English whatever the launcher's UI language.

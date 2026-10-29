@@ -6,7 +6,7 @@ use serde_json::Value;
 /// Azure application client_id, baked in at compile time. Own builds should set
 /// MILLIDA_MS_CLIENT_ID to their own registration.
 // Public Azure application id, not a secret. Custom builds set their own through MILLIDA_MS_CLIENT_ID.
-const MS_CLIENT_ID_FALLBACK: &str = "499c8d36-be2a-4231-9ebd-ef291b7bb64c";
+const MS_CLIENT_ID_FALLBACK: &str = "";
 
 pub(crate) fn ms_client_id() -> &'static str {
     match option_env!("MILLIDA_MS_CLIENT_ID") {

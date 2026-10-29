@@ -1,8 +1,8 @@
 [package]
-name = "millida-launcher"
+name = "OpenLauncher"
 version = "2.0.286"
-description = "Millida Launcher — безопасный лаунчер Minecraft"
-authors = ["Millida"]
+description = "OpenLaucnher — некоммерчесий форк Millida"
+authors = ["Millida", "Miblox"]
 edition = "2021"
 license = "GPL-3.0-only"
 
